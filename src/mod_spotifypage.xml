@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.3"
+	client="site"
+	method="upgrade">
+    
+    <name>BRAINLEAF Spotify Page</name>
+    <author>BRAINLEAF Communication</author>
+    <version>1.0.0</version>
+    <description>Simple module to show a Spotify artist page inside your Joomla.</description>
+    <creationDate>20 March 2016</creationDate>
+    <license>GNU/GPL 3</license>
+    <files>
+        <filename module="mod_spotifypage">mod_spotifypage.php</filename>
+		<filename>mod_spotifypage.xml</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+        <folder>assets</folder>
+    </files>
+	<languages>
+		<!--
+		<language tag="it-IT">language/it-IT/it-IT.mod_spotifypage.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.mod_spotifypage.sys.ini</language>
+		-->
+        <language tag="en-GB">language/en-GB/en-GB.mod_spotifypage.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_spotifypage.sys.ini</language>
+	</languages>
+	
+<config>
+	<fields name="params">
+		<fieldset name="basic">
+			
+			<!-- MODULE SETTINGS -->
+			<!-- ####################################################################### -->
+		
+			<field name="moduleclass_sfx" type="text"  default="" label="Module Class Suffix" description="" />
+			
+            <field type="spacer" name="mod_spotifypage_spacer-artist" class="text" label="MOD_SPOTIFYPAGE_SPACER-ARTIST" />
+			<field 
+				name="mod_spotifypage_artist-search" 
+				type="text" 
+				label="MOD_SPOTIFYPAGE_ARTIST-SEARCH" 
+				description="MOD_SPOTIFYPAGE_ARTIST-SEARCH_DESC" 
+				required="true"
+			/>
+			
+			<field type="spacer" name="mod_spotifypage_spacer-pageconfig" class="text" label="MOD_SPOTIFYPAGE_SPACER-PAGECONFIG" />
+			
+			<field 
+				name="mod_spotifypage_show-artistname" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_SHOW-ARTISTNAME" 
+				description="MOD_SPOTIFYPAGE_SHOW-ARTISTNAME_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+			
+			<field 
+				name="mod_spotifypage_show-artistimage" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_SHOW-ARTISTIMAGE" 
+				description="MOD_SPOTIFYPAGE_SHOW-ARTISTIMAGE_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+			
+			<field 
+				name="mod_spotifypage_show-artistpagelink" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_SHOW-ARTISTPAGELINK" 
+				description="MOD_SPOTIFYPAGE_SHOW-ARTISTPAGELINK_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+			
+			<field 
+				name="mod_spotifypage_show-artistfollowers" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_SHOW-ARTISTFOLLOWERS" 
+				description="MOD_SPOTIFYPAGE_SHOW-ARTISTFOLLOWERS_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+			
+			<field 
+				name="mod_spotifypage_show-artistgenres" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_SHOW-ARTISTGENRES" 
+				description="MOD_SPOTIFYPAGE_SHOW-ARTISTGENRES_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+			
+			<field 
+				name="mod_spotifypage_show-albums" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_SHOW-ALBUMS" 
+				description="MOD_SPOTIFYPAGE_SHOW-ALBUMS_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+			
+			<field 
+				name="mod_spotifypage_show-follow-btn" 
+				type="radio" 
+				default="0" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_SHOW-FOLLOW-BTN" 
+				description="MOD_SPOTIFYPAGE_SHOW-FOLLOW-BTN_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+			
+			<field 
+				name="mod_spotifypage_show-follow-btn-position" 
+				type="radio" 
+				default="0" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_SHOW-FOLLOW-BTN-POSITION" 
+				description="MOD_SPOTIFYPAGE_SHOW-FOLLOW-BTN-POSITION_DESC">
+			  	
+			  		<option value="1">Top</option>
+			  		<option value="2">Bottom</option>
+			  		<option value="3">Both</option>
+			  		
+			</field>
+			
+			<field type="spacer" name="mod_spotifypage_spacer-albumsconfig" class="text" label="MOD_SPOTIFYPAGE_SPACER-ALBUMSCONFIG" />
+			
+			<field 
+				name="mod_spotifypage_album_show-title" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_ALBUM_SHOW-TITLE" 
+				description="MOD_SPOTIFYPAGE_ALBUM_SHOW-TITLE_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+			
+			<field 
+				name="mod_spotifypage_album_show-playonspotify" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_ALBUM_SHOW-PLAYONSPOTIFY" 
+				description="MOD_SPOTIFYPAGE_ALBUM_SHOW-PLAYONSPOTIFY_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+
+		</fieldset>
+        
+        <fieldset name="stylesettings" label="MOD_SPOTIFYPAGE_FIELDSET_LIBSANDSTYLE">
+            <field type="spacer" name="mod_spotifypage_styles-spacer" label="MOD_SPOTIFYPAGE_STYLES-SPACER" />
+            
+            <field 
+				name="mod_spotifypage_libs_load-css" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_LIBS_LOAD-CSS" 
+				description="MOD_SPOTIFYPAGE_LIBS_LOAD-CSS_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+			
+			<field 
+				name="mod_spotifypage_libs_load-fontawes" 
+				type="radio" 
+				default="1" 
+                class="btn-group"
+                labelclass="control-label"
+				label="MOD_SPOTIFYPAGE_LIBS_LOAD-FONTAWES" 
+				description="MOD_SPOTIFYPAGE_LIBS_LOAD-FONTAWES_DESC">
+			  	
+			  		<option value="1">JYES</option>
+			  		<option value="0">JNO</option>
+			  		
+			</field>
+
+		</fieldset>
+        
+        
+        <fieldset name="advanced">
+			<field 
+				name="layout" 
+				type="modulelayout" 
+				label="Layout" 
+				description="Choose a layout" 
+			/>
+		</fieldset>	
+		
+	</fields>
+</config>
+</extension>

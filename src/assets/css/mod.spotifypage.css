@@ -1,0 +1,211 @@
+/*
+*   @package BrainSpotifyPage
+*   @subpackage Modules
+*   @link http://www.brainleaf.eu
+*   @license GNU/GPL
+*
+*   BRAINLEAF Spotify Page
+*   ==================================================================
+*   Simple module to show a Spotify artist page inside your Joomla.
+*   ==================================================================
+*   Author: BRAINLEAF Communication | http://brainleaf.eu | (C) 2016
+*   License: GNU/GPL 3
+*   Version: 1.5.x
+*   Compatibility: Joomla 3.2.x or superior
+*   ===================================================================
+*/ 
+
+.brainSpotifyPage {}
+
+.brainSpotifyPage h1,
+.brainSpotifyPage h2,
+.brainSpotifyPage h3,
+.brainSpotifyPage h4,
+.brainSpotifyPage h5,
+.brainSpotifyPage h6 {
+	font-weight: bold!important;
+}
+
+.brainSpotifyPage * {
+	-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+.brainSpotifyPage_wrapper {}
+
+.brainSpotifyPage_artist-infos {
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.brainSpotifyPage_artist-image {}
+
+.brainSpotifyPage_artist-image img {
+	width: 100%;
+}
+
+.brainSpotifyPage_artist-text {
+	position: absolute;
+	top: auto;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 20px;
+	background: rgba(0,0,0,0.3);
+	color: #fff;
+}
+
+.brainSpotifyPage_artist-name h4 {
+	font-size: 5em;
+    margin: 0;
+}
+
+.brainSpotifyPage_artist-details {
+	margin: 10px -10px 0 -10px;
+	display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+    		flex-wrap: wrap;
+    /*-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+			align-items: center;*/
+}
+
+.brainSpotifyPage_artist-details > div {
+	width: 33.3333%;
+	padding: 10px;
+}
+
+.brainSpotifyPage_artist-details .spotify-page a {
+	display: inline-block;
+	background: #2ebd59;
+	color: #fff;
+	padding: 10px 20px;
+	font-size: 1.3em;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-radius: 30px;
+}
+
+.brainSpotifyPage_artist-details .spotify-page a:hover {
+	background: #1ed760;
+	text-decoration: none;
+}
+
+.brainSpotifyPage_artist-details .spotify-followers span {
+	font-size: 3em;
+    font-weight: bold;
+}
+
+.brainSpotifyPage_artist-details .spotify-genres {
+	
+}
+
+.brainSpotifyPage_artist-details .spotify-genres .spotify-genre-tag {
+	background: #000;
+    display: inline-block;
+    padding: 5px;
+    font-size: 0.8em;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.brainSpotifyPage_artist-albums {
+	margin: -10px -10px 30px -10px;
+	display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+	-webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+    		flex-wrap: wrap;
+}
+/*
+.brainSpotifyPage_artist-albums:before,
+.brainSpotifyPage_artist-albums:after {
+	content: "";
+	display: table;
+	clear: both;
+	float: none;
+}
+*/
+.brainSpotifyPage_artist-album {
+	width: 33.3333%;
+}
+
+@media all and (max-width: 767px) {
+	.brainSpotifyPage_artist-album {
+		width: 50%;
+	}
+}
+
+@media all and (max-width: 500px) {
+	.brainSpotifyPage_artist-album {
+		width: 100%;
+	}
+}
+
+.brainSpotifyPage_artist-album-inner {
+	margin: 10px;
+}
+
+.brainSpotifyPage_artist-album-details h5 {
+	font-weight: bold;
+	font-size: 1.3em;
+	text-transform: uppercase;
+}
+
+.brainSpotifyPage_artist-album-playonspotify {
+	text-align: center;
+	margin-top: 5px;
+	position: relative;
+}
+
+.brainSpotifyPage_artist-album-image a {
+	position: relative;
+	display: block;
+}
+
+.brainSpotifyPage_artist-album-image a img {
+	width: 100%;
+}
+
+.brainSpotifyPage_artist-album-image-over {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.4);
+	opacity: 0;
+	text-align: center;
+	font-size: 5em;
+	display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+			align-items: center;
+}
+
+.brainSpotifyPage_artist-album-image-over i {
+	width: 100%;
+}
+
+.brainSpotifyPage_artist-album-image a:hover > .brainSpotifyPage_artist-album-image-over {
+	opacity: 1;
+}
+
+.brainSpotifyPage_artist-follow {
+	margin: 20px 0;
+}
+
+.brainSpotifyPage_signature {
+	font-size: 0.5em;
+	text-align: center;
+	margin: 0 0 20px 0;
+}
